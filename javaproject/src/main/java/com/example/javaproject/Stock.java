@@ -13,7 +13,7 @@ public class Stock implements Serializable {
         System.out.println("Checking for low stock...");
         for (Item item : items) {
             if (item.getQuantity() < 5) { // Example threshold for low stock
-                System.out.println("Low stock alert for item: " + item.getName() + " (Quantity: " + item.getQuantity() + ")");
+                System.out.println("Low stock alert for item: " + item.getItemName() + " (Quantity: " + item.getQuantity() + ")");
             }
         }
     }
@@ -22,7 +22,7 @@ public class Stock implements Serializable {
     public void addNewItem(Item newItem) {
         items.add(newItem); // Add the item to the list
         saveStockToFile(); // Save the updated stock list to the file
-        System.out.println("Item added successfully: " + newItem.getName());
+        System.out.println("Item added successfully: " + newItem.getItemName());
     }
 
     // Save the stock list to a serialized file
