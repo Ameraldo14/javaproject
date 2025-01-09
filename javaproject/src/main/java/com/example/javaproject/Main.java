@@ -19,24 +19,19 @@ public class Main {
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
-
             switch (choice) {
                 case 1:
                     addUser(users, scanner);
                     break;
-
                 case 2:
                     displayUsers(users);
                     break;
-
                 case 3:
                     deleteUser(users, scanner);
                     break;
-
                 case 4:
                     modifyUser(users, scanner);
                     break;
-
                 case 5:
                     System.out.println("Exiting...");
                     scanner.close();

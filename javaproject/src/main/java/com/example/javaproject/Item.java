@@ -1,6 +1,8 @@
 package com.example.javaproject;
 
-public class Item extends Bill {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     // Attributes
     private String itemName;
     private String category;
@@ -9,7 +11,6 @@ public class Item extends Bill {
 
     // Constructor
     public Item(String itemName, String category, double price, int quantity) {
-        super("DefaultBill"); // Inherit from Bill
         this.itemName = itemName;
         this.category = category;
         this.price = price;
@@ -41,8 +42,19 @@ public class Item extends Bill {
         return quantity;
     }
 
-    // Setter for quantity (if needed)
+    // Setter for quantity
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemName='" + itemName + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
+
