@@ -1,7 +1,9 @@
 package com.example.javaproject.controller;
+
 // Importing the necessary model classes
 import com.example.javaproject.model.Bill;
 import com.example.javaproject.model.Item;
+import com.example.javaproject.model.Stock;
 import com.example.javaproject.model.User;
 
 import java.io.FileOutputStream;
@@ -34,6 +36,15 @@ public class Serializer {
             System.out.println("Bill serialized successfully.");
         } catch (IOException e) {
             System.err.println("Error serializing bill: " + e.getMessage());
+        }
+    }
+
+    public static void serializeStock(Stock stock) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("stock.ser"))) {
+            out.writeObject(stock);  // Serialize the stock object
+            System.out.println("Stock serialized successfully.");
+        } catch (IOException e) {
+            System.err.println("Error serializing stock: " + e.getMessage());
         }
     }
 }
