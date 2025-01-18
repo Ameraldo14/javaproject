@@ -220,27 +220,38 @@ public class ElectronicsStoreUI {
 
         layout.getChildren().addAll(title, manageStock, viewStatistics, logout);
         primaryStage.setScene(new Scene(layout, 600, 400));
+        primaryStage.getScene().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         primaryStage.show();
     }
 
     private void loadAdministratorDashboard(Stage primaryStage) {
-        VBox layout = new VBox(15);
-        layout.setPadding(new Insets(30));
-        layout.setAlignment(Pos.CENTER);
+        VBox layout = new VBox(10);
+        layout.setStyle("-fx-padding: 20; -fx-alignment: center;");
 
         Label title = new Label("Administrator Dashboard");
-        title.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
+        title.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+
+        // Employee Management Section
 
         Button manageEmployees = new Button("Manage Employees");
-        manageEmployees.setPrefWidth(200);
-        manageEmployees.setOnAction(e -> showAlert(Alert.AlertType.INFORMATION, "Manage Employees", "Employee management not implemented yet."));
+        manageEmployees.setOnAction(e -> showAlert(Alert.AlertType.INFORMATION, "Employee Management", "Employee management not implemented yet."));
+
+        // Financial Reports Section
+
+        Button viewReports = new Button("View Financial Reports");
+        viewReports.setOnAction(e -> showAlert(Alert.AlertType.INFORMATION, "Financial Reports", "Financial reports not implemented yet."));
 
         Button logout = new Button("Logout");
-        logout.setPrefWidth(200);
         logout.setOnAction(e -> primaryStage.setScene(createLoginScene(primaryStage)));
 
-        layout.getChildren().addAll(title, manageEmployees, logout);
+        layout.getChildren().addAll(
+                title,
+                manageEmployees,
+                 viewReports,
+                logout
+        );
         primaryStage.setScene(new Scene(layout, 600, 400));
+        primaryStage.getScene().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         primaryStage.show();
     }
 }
