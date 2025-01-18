@@ -1,0 +1,56 @@
+/* styles.css*/
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-background-color: #f5f5f5;
+}
+
+.label-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+}
+
+.combo-box, .text-field, .password-field, .button {
+    -fx-background-color: #fff;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-background-color: #0078d7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.button:hover {
+    -fx-background-color: #005a9e;
+}
+
+.button:pressed {
+    -fx-background-color: #004578;
+}
+
+.vbox {
+    -fx-spacing: 20px;
+    -fx-padding: 30px;
+    -fx-alignment: center;
+}
+
+.grid-pane {
+    -fx-hgap: 20px;
+    -fx-vgap: 15px;
+    -fx-alignment: center;
+}
+

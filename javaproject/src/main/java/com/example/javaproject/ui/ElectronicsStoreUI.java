@@ -32,30 +32,33 @@ public class ElectronicsStoreUI {
     }
 
     public Scene createLoginScene(Stage primaryStage) {
-        VBox layout = new VBox(15);
-        layout.setPadding(new Insets(30));
-        layout.setAlignment(Pos.CENTER);
+        VBox layout = new VBox(20);
+        layout.getStyleClass().add("vbox");
 
         Label titleLabel = new Label("Welcome to Electronics Store");
-        titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+        titleLabel.getStyleClass().add("label-title");
 
         GridPane formLayout = new GridPane();
-        formLayout.setHgap(15);
-        formLayout.setVgap(10);
-        formLayout.setAlignment(Pos.CENTER);
+        formLayout.getStyleClass().add("grid-pane");
 
         Label roleLabel = new Label("Role:");
+        roleLabel.getStyleClass().add("label");
         ComboBox<String> roleComboBox = new ComboBox<>();
         roleComboBox.getItems().addAll("Cashier", "Manager", "Administrator");
-        roleComboBox.setPrefWidth(200);
+        roleComboBox.setPrefWidth(300);
+        roleComboBox.getStyleClass().add("combo-box");
 
         Label usernameLabel = new Label("Username:");
+        usernameLabel.getStyleClass().add("label");
         TextField usernameField = new TextField();
         usernameField.setPromptText("Enter your username");
+        usernameField.getStyleClass().add("text-field");
 
         Label passwordLabel = new Label("Password:");
+        passwordLabel.getStyleClass().add("label");
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Enter your password");
+        passwordField.getStyleClass().add("password-field");
 
         formLayout.add(roleLabel, 0, 0);
         formLayout.add(roleComboBox, 1, 0);
@@ -65,12 +68,15 @@ public class ElectronicsStoreUI {
         formLayout.add(passwordField, 1, 2);
 
         Button loginButton = new Button("Login");
-        loginButton.setPrefWidth(100);
+        loginButton.setPrefWidth(300);
+        loginButton.getStyleClass().add("button");
         loginButton.setOnAction(e -> handleLogin(primaryStage, roleComboBox, usernameField, passwordField));
 
         layout.getChildren().addAll(titleLabel, formLayout, loginButton);
 
-        return new Scene(layout, 600, 400);
+        Scene scene = new Scene(layout, 600, 400);
+        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        return scene;
     }
 
     private void handleLogin(Stage primaryStage, ComboBox<String> roleComboBox, TextField usernameField, PasswordField passwordField) {
@@ -128,27 +134,30 @@ public class ElectronicsStoreUI {
     }
 
     private void loadCashierDashboard(Stage primaryStage) {
-        VBox layout = new VBox(15);
-        layout.setPadding(new Insets(30));
-        layout.setAlignment(Pos.CENTER);
+        VBox layout = new VBox(20);
+        layout.getStyleClass().add("vbox");
 
         Label title = new Label("Cashier Dashboard");
-        title.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
+        title.getStyleClass().add("label-title");
 
         Button createBill = new Button("Create Bill");
-        createBill.setPrefWidth(200);
+        createBill.setPrefWidth(300);
+        createBill.getStyleClass().add("button");
         createBill.setOnAction(e -> handleCreateBill());
 
         Button viewBills = new Button("View Today's Bills");
-        viewBills.setPrefWidth(200);
+        viewBills.setPrefWidth(300);
+        viewBills.getStyleClass().add("button");
         viewBills.setOnAction(e -> handleViewBills());
 
         Button logout = new Button("Logout");
-        logout.setPrefWidth(200);
+        logout.setPrefWidth(300);
+        logout.getStyleClass().add("button");
         logout.setOnAction(e -> primaryStage.setScene(createLoginScene(primaryStage)));
 
         layout.getChildren().addAll(title, createBill, viewBills, logout);
         primaryStage.setScene(new Scene(layout, 600, 400));
+        primaryStage.getScene().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         primaryStage.show();
     }
 
