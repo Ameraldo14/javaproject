@@ -1,6 +1,5 @@
 package com.example.javaproject.main;
-
-import com.example.javaproject.model.ui.ElectronicsStoreUI;
+import com.example.javaproject.ui.ElectronicsStoreUI;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,6 +10,10 @@ public class ElectronicsStoreApp extends Application {
     public void start(Stage primaryStage) {
         ElectronicsStoreUI ui = new ElectronicsStoreUI();
         Scene loginScene = ui.createLoginScene(primaryStage);
+
+
+        //Failed implementation of css
+        /* loginScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());*/
 
         primaryStage.setTitle("Electronics Store Management System");
         primaryStage.setScene(loginScene);
